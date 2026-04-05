@@ -9,7 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v6
-      - run: uv sync --only-dev
-      - run: uv run ruff check .
-      - run: uv run ruff format --check .
+      - uses: astral-sh/ruff-action@v3
+        with:
+          args: check .
+      - uses: astral-sh/ruff-action@v3
+        with:
+          args: format --check .
